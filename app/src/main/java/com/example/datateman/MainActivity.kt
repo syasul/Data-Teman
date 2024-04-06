@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     }
             }
             R.id.showData -> {
-                // Kode untuk menampilkan data teman
+                startActivity(Intent(this@MainActivity, MyListData::class.java))
             }
         }
     }

@@ -13,6 +13,12 @@
         android:theme="@style/Theme.DataTeman"
         tools:targetApi="31">
         <activity
+            android:name=".UpdateData"
+            android:exported="false" />
+        <activity
+            android:name=".MyListData"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity

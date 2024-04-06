@@ -1,9 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateData">
+    android:background="@color/white"
+    tools:context=".UpdateData"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/my_toolbarx"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/new_nama"
+        android:textSize="15sp"
+        android:hint="Nama Baru"
+        android:inputType="textPersonName"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/new_alamat"
+        android:textSize="15sp"
+        android:hint="Alamat Baru"
+        android:inputType="textPersonName"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/new_nohp"
+        android:textSize="15sp"
+        android:hint="NO HP Baru"
+        android:inputType="textPersonName"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/update"
+        android:text="UPDATE"
+        />
+
+
+</LinearLayout>
