@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/new_nohp"
         android:textSize="15sp"
-        android:hint="NO HP Baru"
+        android:hint="No HP Baru"
         android:inputType="textPersonName"
         />
 

@@ -5,22 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:layout_margin="8dp"
     tools:context=".MyListData">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:id="@+id/my_toolbar"
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
+        app:titleTextColor="@color/white"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="search"
+        android:layout_below="@id/my_toolbar"
+        android:queryHint="Search" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dataList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/dataList"
-        android:scrollbars="vertical"
-        android:layout_marginTop="5dp"/>
+        android:layout_below="@id/searchView"
+        android:layout_marginTop="5dp"
+        android:scrollbars="vertical" />
+
+    <TextView
+        android:id="@+id/noDataText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Data tidak ditemukan"
+        android:visibility="gone"
+        android:textSize="18sp"
+        android:textColor="@color/black" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/icon_add"
+        app:backgroundTint="@color/colorAccent" />
 </RelativeLayout>

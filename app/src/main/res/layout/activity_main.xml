@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:padding="10dp"
     tools:context=".MainActivity">
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +21,7 @@
             android:hint="Nama"
             android:ems="10"
             android:inputType="textPersonName" />
-        
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,6 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/save"
+                android:layout_marginRight="8dp"
                 android:layout_weight="1"
                 android:text="Simpan"/>
             <Button
@@ -53,13 +55,14 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/showData"
                 android:layout_weight="1"
-                android:text="lihat Data"/>
+                android:text="Lihat Data"/>
         </LinearLayout>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/logout"
             android:layout_weight="1"
-            android:text="logout"/>
+
+            android:text="Logout"/>
     </LinearLayout>
 </RelativeLayout>
