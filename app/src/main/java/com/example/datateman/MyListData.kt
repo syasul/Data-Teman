@@ -106,7 +106,8 @@ class MyListData : AppCompatActivity() {
         val filteredList = dataTeman.filter {
             it.nama?.contains(query, ignoreCase = true) == true ||
                     it.alamat?.contains(query, ignoreCase = true) == true ||
-                    it.no_hp?.contains(query, ignoreCase = true) == true
+                    it.no_hp?.contains(query, ignoreCase = true) == true ||
+                    it.prodi?.contains(query, ignoreCase = true) == true
         }
         adapter?.updateList(ArrayList(filteredList))
         findViewById<TextView>(R.id.noDataText).visibility = if (filteredList.isEmpty()) View.VISIBLE else View.GONE

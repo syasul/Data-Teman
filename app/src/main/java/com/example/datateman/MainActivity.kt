@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import com.example.datateman.databinding.ActivityMainBinding
 import com.firebase.ui.auth.AuthUI
@@ -19,6 +21,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private val RC_SIGN_IN = 1
     private lateinit var binding: ActivityMainBinding
 
+    private lateinit var prodiSpinner: Spinner
+    private lateinit var prodiAdapter: ArrayAdapter<String>
+    private val prodiList = listOf("S1 - TEKNOLOGI INFORMASI", "S1 - SISTEM INFORMASI", "D3 - SISTEM INFORMASI")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -29,6 +35,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.save.setOnClickListener(this)
 
         auth = FirebaseAuth.getInstance()
+
+        // Initialize Spinner
+        prodiSpinner = binding.prodi
+        prodiAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, prodiList)
+        prodiAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        prodiSpinner.adapter = prodiAdapter
     }
 
     private fun isEmpty(s: String): Boolean {
@@ -45,6 +57,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 val getNama: String = binding.nama.text.toString()
                 val getAlamat: String = binding.alamat.text.toString()
                 val getNo_hp: String = binding.noHp.text.toString()
+                val getProdi: String = prodiSpinner.selectedItem.toString()
 
                 val getReference: DatabaseReference
                 getReference = database.reference
@@ -53,14 +66,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     Toast.makeText(this@MainActivity, "Data tidak boleh ada yang kosong", Toast.LENGTH_SHORT).show()
                 } else {
                     getReference.child("Admin").child(getUserID).child("DataTeman").push()
-                        .setValue(data_teman(getNama, getAlamat, getNo_hp))
+                        .setValue(data_teman(getNama, getAlamat, getNo_hp, getProdi))
                         .addOnCompleteListener(this) {
                             binding.nama.setText("")
                             binding.alamat.setText("")
                             binding.noHp.setText("")
+                            prodiSpinner.setSelection(0)
                             Toast.makeText(this@MainActivity, "Data tersimpan", Toast.LENGTH_SHORT).show()
                         }
-
                 }
             }
             R.id.logout -> {
@@ -81,5 +94,4 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
-
 }

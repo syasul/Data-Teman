@@ -42,6 +42,14 @@
         android:inputType="textPersonName"
         />
 
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/new_prodi"
+        android:hint="Program Studi" />
+
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -27,6 +27,7 @@ class RecyclerViewAdapter (private var dataTeman: ArrayList<data_teman>, private
         val Nama: TextView = itemView.findViewById(R.id.namax)
         val Alamat: TextView = itemView.findViewById(R.id.alamatx)
         val NoHP: TextView = itemView.findViewById(R.id.no_hpx)
+        val Prodi: TextView = itemView.findViewById(R.id.prodix)
         val ListItem: LinearLayout = itemView.findViewById(R.id.list_item)
     }
 
@@ -49,6 +50,7 @@ class RecyclerViewAdapter (private var dataTeman: ArrayList<data_teman>, private
         holder.Nama.text = "Nama: ${teman.nama}"
         holder.Alamat.text = "Alamat: ${teman.alamat}"
         holder.NoHP.text = "NoHP: ${teman.no_hp}"
+        holder.Prodi.text = "Prodi: ${teman.prodi}"
         holder.ListItem.setOnLongClickListener { view ->
             val actions = arrayOf("Update", "Delete")
             val alert: AlertDialog.Builder = AlertDialog.Builder(view.context)
@@ -60,6 +62,7 @@ class RecyclerViewAdapter (private var dataTeman: ArrayList<data_teman>, private
                         bundle.putString("dataNama", teman.nama)
                         bundle.putString("dataAlamat", teman.alamat)
                         bundle.putString("dataNoHP", teman.no_hp)
+                        bundle.putString("dataProdi", teman.prodi)
                         bundle.putString("getPrimaryKey", teman.key)
                         Log.e("RecyclerViewAdapter", "Navigating to UpdateData activity")
                         val intent = Intent(view.context.applicationContext, UpdateData::class.java)
